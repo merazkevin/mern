@@ -1,0 +1,5 @@
+How to convert any function into an arrow function?
+    1-Remove the "function" keyword, or name of function.
+    2-Add arrow
+    3- Remove parenthesis on the left side
+    4- Remove returns & curly braces, put inside    parenthesis.

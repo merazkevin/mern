@@ -59,7 +59,7 @@ class Vehicle {
     }
 }
 // child M5 class
-class M5 extends Vehicle {
+class M5 extends Vehicle { 
     constructor(color) {
         super("BMW", "M5", color);
     }

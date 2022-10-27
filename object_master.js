@@ -30,7 +30,7 @@ console.log(pkmnIds)
 
 // Using the above pokémon array, find the following:
 // an array of pokémon objects where the id is evenly divisible by 3
-const evDivBy3 = pokémon.filter(item=> item.id%3==0);
+const evDivBy3 = pokémon.filter(item=> item.id % 3==0);
 console.log(evDivBy3)
 // an array of pokémon objects that are "fire" type
 const fireTypePk = pokémon.filter(types=>types.types.includes("fire"));

@@ -132,6 +132,45 @@
 // const values = [1, 2, 3, 4, 5];
 // const cubes = values.map( val => val**3 );
 // const evens = values.filter( val => val % 2 === 0 );
-const groceries = ["pearl onions", "cremini mushrooms", "thyme"];
-const oFoods = groceries.filter( item => item.includes("o") );
-console.log(oFoods)
+// const groceries = ["pearl onions", "cremini mushrooms", "thyme"];
+// const oFoods = groceries.filter( item => item.includes("o") );
+// console.log(oFoods)
+
+
+// <=== Currying (Optional) ===>
+// function ninjaBelt(ninja, beltColor) {
+//     console.log("Ninja " + ninja + " has earned a " + beltColor + " belt.");
+// }
+// ninjaBelt('Eileen', 'black');
+
+// function ninjaBelt(ninja) {
+//     return function belt(beltColor) { //note the closure here!
+//         console.log("Ninja " + ninja + " has earned a " + beltColor + " belt.");
+//     }
+// }
+// ninjaBelt('Eileen')('black'); //note the double invocation here.
+
+// <=== Closures (Optional) ===>
+// here we have a function called "Outer"
+function outer() {
+    let count = 0; // this is a count variable that is scoped to the function
+    // there is an inner function that increments count and then console logs it
+    function inner() {
+        count++;
+        console.log(count);
+    }
+    // we're returning the inner function
+    return inner;
+}
+
+const counter = outer();   // counter is the function that we returned from calling the outer function
+counter();                 // this will console.log "1"
+counter();                 // this will console.log "2"
+counter();                 // this will console.log "3"
+counter();                 // this will console.log "4"
+
+// so that means that the count variable still exists! 
+// and it is being changed even though we aren't inside of the Outer function!
+// can we access count out here?
+console.log(); // doesn't work!
+

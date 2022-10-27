@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.div{
+  width: 200px;
+  justify-content: space-between;
+  margin: 10px;
+  border-radius: 8px;
+  padding: 20px;
+  border: black 5px;
+  background-color: grey;
+  color: peachpuff;
+  box-shadow: black 3px 3px;
+  
+}
+
+#div{
+  display: flex;
+  flex-wrap: wrap;
+}

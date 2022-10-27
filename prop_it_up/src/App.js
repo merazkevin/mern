@@ -1,5 +1,5 @@
 import './App.css';
-import {PersonCard} from "./components/Prop_it_up.js"
+import {PersonCard} from "./components/PersonCard.js"
 
 function App() {
   return (

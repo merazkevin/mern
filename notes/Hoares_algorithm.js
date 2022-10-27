@@ -175,16 +175,48 @@
 // console.log(); // doesn't work!
 
 //<=== Jsx ===>
-class App extends React.Component {
-    render() {
-        return React.createElement(
-            ‘h1’,
-            {},
-            “Hello World!”
-        );
-    }
-}
-// select the root and render the “App” component we defined earlier
-const domContainer = document.querySelector('#root');
-const root = ReactDOM.createRoot(domContainer);
-root.render(React.createElement(App));
+// class App extends React.Component {
+//     render() {
+//         return React.createElement(
+//             ‘h1’,
+//             {},
+//             “Hello World!”
+//         );
+//     }
+// }
+// // select the root and render the “App” component we defined earlier
+// const domContainer = document.querySelector('#root');
+// const root = ReactDOM.createRoot(domContainer);
+// root.render(React.createElement(App));
+
+//<=== class components ===>
+// import React, { Component } from 'react';
+
+
+// class SomeClassComponent extends Component {
+//     render() {
+//         return <div>This is our first class component.</div>;
+//     }
+// }
+
+// export default SomeClassComponent;
+
+//<=== Props ===>
+// import React, { Component } from 'react';
+
+// class Header extends Component {
+//     render() {
+//         return (
+//             <div>
+//                 // By inheriting from Component all we need is
+//                 // the "this" keyword in front of props.
+//                 <h1>My name is {this.props.firstName} {this.props.lastName}</h1>
+//             </div>
+//         );
+//     }
+// }
+
+//<=== valid ways to pass down props: ===>
+{/* <SomeComponent someProp="test" someOtherProp={ 67 }/> //Valid. We can send normal strings, but in numbers need curly braces
+<SomeComponent someProp={ "test" } someOtherProp={ 67 }/> //Valid. A String is still a Javascript expression
+<SomeComponent someProp="test" someOtherProp=67 /> //Invalid. Numbers need curly braces */}

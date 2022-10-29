@@ -4,27 +4,26 @@ import { useState } from "react";
 const UserInfoCard = (props)=>{
     const {oneInfoCard: InfoCard} = props;
     const [userCard, setOneUserCard]= useState(InfoCard)
-    const {first_name, last_name,age} = userCard
+    const {first_name, last_name,age,actualAge} = userCard
 
     return(
         <>
         <div className="div" >
-            <h1>Big Invertion</h1>
             <h4>Name: {first_name} {last_name} 
             </h4>
             <p>Age: {age}</p>
 
             {/* actual Age */}
-            <button onClick={(e)=>{
+            <button onClick={(event)=>{
                         setOneUserCard({
                             ...userCard,
-                            age:age
+                            age:actualAge
                         })
             }}
             >Actual Age</button>
 
             {/* plus one age */}
-            <button onClick={(e)=>{
+            <button onClick={(event)=>{
                         setOneUserCard({
                             ...userCard,
                             age: age+1
@@ -33,14 +32,13 @@ const UserInfoCard = (props)=>{
             >Hey! YOo</button>
 
             {/* Reset */}
-            <button onClick={(e)=>{
+            <button onClick={(event)=>{
                         setOneUserCard({
                             ...userCard,
                             age: age-age
                         })
             }}
             >Reset</button>
-
         </div>
         </>
     )

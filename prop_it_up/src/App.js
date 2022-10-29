@@ -10,7 +10,8 @@ function App() {
     id:1,
     first_name:"Jane",
     last_name:"Doe",
-    age: 45
+    age: 45,
+    actualAge: 45
   },
 
     /* <=== John ===> */
@@ -18,7 +19,8 @@ function App() {
     id:2,
     first_name:"Jonhn",
     last_name:"Smith",
-    age: 45
+    age: 45,
+    actualAge: 45
   },
 
   /* <=== Jane ===> */
@@ -26,7 +28,8 @@ function App() {
     id:3,
     first_name:"Millard",
     last_name:"Filmore",
-    age: 45
+    age: 45,
+    actualAge:45
   },
   
   //* <=== Maria ===> *
@@ -34,7 +37,8 @@ function App() {
     id:4,
     first_name:"Maria",
     last_name:"Smith",
-    age: 45
+    age: 45,
+    actualAge:45
   }
   ]
   return (
@@ -43,7 +47,7 @@ function App() {
     {
       UserInfo.map((oneInfoCard)=>{
         return <UserInfoCard key={oneInfoCard.id} oneInfoCard={oneInfoCard} />
-      })
+      }) 
     }
     </>
     

@@ -13,13 +13,34 @@ const UserInfoCard = (props)=>{
             <h4>Name: {first_name} {last_name} 
             </h4>
             <p>Age: {age}</p>
+
+            {/* actual Age */}
+            <button onClick={(e)=>{
+                        setOneUserCard({
+                            ...userCard,
+                            age:age
+                        })
+            }}
+            >Actual Age</button>
+
+            {/* plus one age */}
             <button onClick={(e)=>{
                         setOneUserCard({
                             ...userCard,
                             age: age+1
                         })
-                    }}
-                    >Hey! YOo</button>
+            }}
+            >Hey! YOo</button>
+
+            {/* Reset */}
+            <button onClick={(e)=>{
+                        setOneUserCard({
+                            ...userCard,
+                            age: age-age
+                        })
+            }}
+            >Reset</button>
+
         </div>
         </>
     )

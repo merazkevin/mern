@@ -55,16 +55,29 @@ const nums4 = [2, 1];
  *    being processed.
  * @returns {Array<number>} The idx where left section of smaller items ends.
  */
-function partition(nums = [], left = 0, right = nums.length - 1) {
-    let mid_indx = Math.floor(left+right/ 2);
-    [nums[mid_indx], nums[right]] = [nums[right], nums[mid_indx]];
-    let temp_pivot_indx = [right];
-    right--
-    while(left<=right){
-        if (nums[left]< nums[temp_pivot_indx]){
-            
-        }
-    }
-
+export function partition(arr, startIdx = 0, endIdx = arr.length - 1) {
+  // your code here
+  let pivotIndex = Math.ceil(Math.random() * (endIdx - startIdx) + startIdx);
+  //Math.floor(Math.random() * (1 + High - Low)) + Low
+  let pivot = arr[pivotIndex];
+  //[1, 5, 8, 4, 2, 6]
+  //[]
+  while(startIdx < endIdx){
+      while(arr[startIdx] < pivot){
+          startIdx++;
+      }
+      while(arr[endIdx] > pivot){
+          endIdx--;
+      }
+      if (startIdx < endIdx){
+          let temp = arr[startIdx];
+          arr[startIdx] = arr[endIdx];
+          arr[endIdx] = temp;
+      }
+  }
+  console.log("final Pivot Index: " + startIdx);
+  console.log("Array: " + arr);
+  console.log("-----------------------------------")
+  return startIdx;
 
 }

@@ -1,6 +1,7 @@
-import React from 'react'
 
-export class PersonCard extends React.Component{
+import React, {Component} from 'react'
+
+export class PersonCard extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -10,7 +11,7 @@ export class PersonCard extends React.Component{
         }
     }
     render(){
-        return <div class="div"> 
+        return <div className="div"> 
                     <h2>{this.props.last_name}, {this.props.first_name}</h2>
                     <ul>
                         <li>Age: {this.state.count}</li>

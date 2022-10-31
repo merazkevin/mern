@@ -2,18 +2,20 @@ import React, { useState } from 'react';
 
 
 const UserForm = () => {
-    const [first_name, setfirst_name] = useState("");
+    const [first_name, setfirst_name,] = useState("");
     const [last_name, setlast_name] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+    const [setHasBeenSubmitted] = useState(false);
+    const [setOnclick] = useState(false);
 
     const createUser = (event) => {
         event.preventDefault();
         const newUser = { first_name,last_name, email, password, confirmPassword };
         console.log("Welcome", newUser);
         setHasBeenSubmitted( true );
+        setOnclick(true);
     }
 
     return (
@@ -23,9 +25,9 @@ const UserForm = () => {
             {/* <===first_name ===> */}
             <div>
                 <label>First Name: </label>
-                <input type="text" onChange={(event) => setfirst_name(event.target.value)} />
+                <input type="text" onChange={(event) => setfirst_name(event.target.value)} onClick={(event) => setfirst_name(event.target.value)}/>
                 {/* validation */}
-                {first_name.length < 2? <p style={{color:"red"}}>Name must be at least 2 characters!</p>:null}
+                {first_name.length===0? null:first_name.length < 2?<p style={{color:"red"}}>Name must be at least 2 characters!</p>:null}
             </div>
 
             {/* <=== last_name ===> */}
@@ -33,7 +35,7 @@ const UserForm = () => {
                 <label>Last Name: </label>
                 <input type="text" onChange={(event) => setlast_name(event.target.value)} />
                 {/* validation */}
-                {last_name.length < 2? <p style={{color:"red"}}>Last Name must be at least 2 characters!</p>:null}
+                {last_name.length===0? null:last_name.length < 2? <p style={{color:"red"}}>Last Name must be at least 2 characters!</p>:null}
             </div>
 
             {/* <=== email ===> */}
@@ -41,7 +43,7 @@ const UserForm = () => {
                 <label>Email Address: </label>
                 <input type="text" onChange={(event) => setEmail(event.target.value)} />
                 {/* validation */}
-                {email.length < 2? <p style={{color:"red"}}>Last Name must be at least 2 characters!</p>:null}
+                {email.length===0? null: email.length < 2? <p style={{color:"red"}}>Last Name must be at least 2 characters!</p>:null}
             </div>
 
             {/* <=== password ===> */}
@@ -49,7 +51,7 @@ const UserForm = () => {
                 <label>Password: </label>
                 <input type="text" onChange={(event) => setPassword(event.target.value)} />
                 {/* validation */}
-                {password.length < 2? <p style={{color:"red"}}>Last Name must be at least 2 characters!</p>:null}
+                {password.length===0? null:password.length < 2? <p style={{color:"red"}}>Last Name must be at least 2 characters!</p>:null}
             </div>
 
             {/* confirmPassword */}
@@ -57,8 +59,8 @@ const UserForm = () => {
                 <label>Confirm Password: </label>
                 <input type="text" onChange={(event) => setConfirmPassword(event.target.value)} />
                 {/* validation */}
-                {confirmPassword.length < 2 ? <p style={{color:"red"}}> Must be at least 2 characters!</p>:null}
-                {confirmPassword === password? <p style={{color:"red"}}>Doesnt Match Password!</p>:null}
+                {confirmPassword.length===0? null:confirmPassword.length < 2 ? <p style={{color:"red"}}> Must be at least 2 characters!</p>:null}
+                {confirmPassword.length===0? null:confirmPassword !== password? <p style={{color:"red"}}>Doesnt Match Password!</p>:null}
             </div>
             <input type="submit" value="Create User" />
         </form>

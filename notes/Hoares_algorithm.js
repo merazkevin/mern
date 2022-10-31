@@ -220,8 +220,18 @@
 // {/* <SomeComponent someProp="test" someOtherProp={ 67 }/> //Valid. We can send normal strings, but in numbers need curly braces
 // <SomeComponent someProp={ "test" } someOtherProp={ 67 }/> //Valid. A String is still a Javascript expression
 // <SomeComponent someProp="test" someOtherProp=67 /> //Invalid. Numbers need curly braces */}
-const useState=[]
-const [username, setUsername] = useState;
-const [email, setEmail] = useState;
-const [password, setPassword] = useState;
-console.log(useState)
+// const useState=[]
+// const [username, setUsername] = useState;
+// const [email, setEmail] = useState;
+// const [password, setPassword] = useState;
+// console.log(useState)
+// import React from 'react' 
+// const nums = [1, 2, 3, 4, 5];
+
+// function double(num) {
+//     return num * 2;
+// }
+
+// const newNums = nums.map(double);
+
+// console.log(newNums); // logs [2, 4, 6, 8, 10]

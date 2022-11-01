@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
 
-export const CreateBoxComponent = (event)=>{
-    const [setColor]=useState("")
-    event.preventDefault();
+
+
+const BoxComponent = (props)=>{
+
     return(
-        submitted? null:<div style={{ backgroundColor:{setColor},width: '100px', height: '100px'}}>Yaya</div>
+        <div  style={{ backgroundColor:props.color,width: props.width+"px", height:props.height+"px" }}>{props.color}</div>
     );
 }
+export default BoxComponent

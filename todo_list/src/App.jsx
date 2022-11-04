@@ -8,14 +8,16 @@ function App() {
   const createItem=(setItemInfo)=>{
     setItems([...items, {setItemInfo}])
   }
-  const deleteItem= (props, )=>{
-        props.keys !== props.ke
-        
-    }
+  const deleteItem= (event,delIndex)=>{
+    const filterItems=items.filter((one_item,index)=>{
+      return index !== delIndex;
+    });
+    setItems(filterItems);
+  }
   return (
     <center>
       <h1>Add Item to  List </h1>
-      <TodoList createItem={createItem}/>
+      <TodoList createItem={createItem} deleteItem={deleteItem}/>
       <hr />
       <div  id="App-border">
       <h3>To Do List</h3>

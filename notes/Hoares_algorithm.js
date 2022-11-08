@@ -235,3 +235,34 @@
 // const newNums = nums.map(double);
 
 // console.log(newNums); // logs [2, 4, 6, 8, 10]
+
+// const noMondays = new Promise( (resolve, reject) => {
+//     if(new Date().getDay() !== 1) {
+//         resolve("Good, it's not Monday!");
+//     } else {
+//         reject("Someone has a case of the Mondays!");
+//     }
+// });
+// noMondays
+//     .then( res => console.log(res) )
+//     .catch( err => console.log(err) );
+
+// const naw=new Promise((resolveOuter) => {
+//     resolveOuter(
+//         new Promise((resolveInner) => {
+//             setTimeout(resolveInner, 1000);
+//         })
+//     );
+// });
+// naw
+//     .then(res => console.log(res))
+//     .catch( err => console.log(err) );
+
+// <=== consuming APIs ===>
+// fetch("http://www.example.com")
+//     .then(response =>{
+//         //do something
+//     }).catch(err => {
+//         console.log(err);
+//     })
+//     let response = await fetch("http://www.example.com");

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+        const [pieceOfState, setPieceOfState] = useState('initial value here');
+        const Example = (props) => {
+            const [people, setPeople] = useState([]);
+
+            useEffect(() => {
+                fetch('https://swapi.dev/api/people/')
+                    .then(response => response.json())
+                    .then(response => setPeople(response.results))
+            }, []);
+
+            return (
+                <div>
+                    {people.length > 0 && people.map((person, index) => {
+                        return (<div key={index}>{person.name}</div>)
+                    })}
+                </div>
+            );
+        }
+
+
+
+    </script>
+</body>
+
+</html>

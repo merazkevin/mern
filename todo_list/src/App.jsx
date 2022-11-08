@@ -8,7 +8,8 @@ function App() {
   const createItem=(setItemInfo)=>{
     setItems([...items, {setItemInfo}])
   }
-  const deleteItem= (event,delIndex)=>{
+  const deleteItem= (delIndex)=>{
+    debugger
     const filterItems=items.filter((one_item,index)=>{
       return index !== delIndex;
     });
@@ -17,11 +18,12 @@ function App() {
   return (
     <center>
       <h1>Add Item to  List </h1>
-      <TodoList createItem={createItem} deleteItem={deleteItem}/>
+      <TodoList createItem={createItem} />
       <hr />
       <div  id="App-border">
       <h3>To Do List</h3>
-        {items.map((one_item, index)=>< Item key={index} setItemInfo={one_item.setItemInfo}/>)}
+        {items.map((one_item, index)=>{
+        return < Item key={index} index={index} setItemInfo={one_item.setItemInfo} deleteItem={deleteItem}/>})}
       </div>
     </center>
   );

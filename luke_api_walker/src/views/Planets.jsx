@@ -1,45 +1,30 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useParams} from 'react-router-dom'
 import axios from 'axios'
-const URL = `https://swapi.dev/api/planets/`;
 
-const Planets = (props) => {
-    const [planets, setPlanets] = useState([]);
-    console.log(planets)
-    const [isLoading, setIsLoading] = useState(false);
+
+const Planets = () => {
+    const { inputVal } = useParams();
+    const [planet, setPlanet] = useState({})
+    console.log(inputVal)
 
     useEffect(() => {
-        setIsLoading(true)
-        setTimeout(() => {
             axios
-                .get(URL)
+                .get(`https://swapi.dev/api/planets/${inputVal}`)
                 .then((response) => {
-                    console.log(response.data.results);
-                    setPlanets(response.data.results);
+                    console.log(response.data)
+                    setPlanet(response.data)
                 })
-                .catch((error) => {
-                    console.log(error)
-                })
-                .finally(() => {
-                    setIsLoading(false)
-                })
-        }, 300);
-    }, [])
+                .catch(error => console.log(error))
+        }, [inputVal])
     return (
-        <div>
-            {
-                planets.map((planet) => {
-                    return (
-                        <div >
-                            <h2>{planet.name}</h2>
-                            <p>climate: {planet.climate}</p>
-                            <p>terrain: {planet.terrain}</p>
-                            <p>Surface Water: {planet.surface_water}</p>
-                            <p>population: {planet.population}</p>
-                            <hr />
-                        </div>
-                    )
-                })
-            }
+        <div >
+            <h2>{planet.name}</h2>
+            <p>climate: {planet.climate}</p>
+            <p>terrain: {planet.terrain}</p>
+            <p>Surface Water: {planet.surface_water}</p>
+            <p>population: {planet.population}</p>
+            <hr />
         </div>
     )
 }

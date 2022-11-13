@@ -1,0 +1,65 @@
+how to fo full stack?
+    <-- commands-->
+    1.mkdir projectName
+    2.cd projectName
+    3.npm init -y
+    4.npm install express
+    5.npm install mongoose
+    6.type nul > server.js
+        within server.js file type the following:
+        ===========================================
+            const express = require('express');
+            const app = express();
+            const port=8000;
+            
+            app.listen(port, ()=>{
+                console.log(`<=== You are now listening to ${port} ===>`)
+            })
+        ===========================================
+    7.cd into projectName folder and create server folder  (mkdir server)
+    8.within server file create 5 more folders(mkdir config controllers models routes services)
+        -config
+        -controllers
+        -models
+        -routes   
+        -services
+    9.create a new react project named client in main project folder NOT IN SEVER FOLDER
+        (npx create-react-app client).
+    10.run nodemon server.js(nodemon server.js)*2 terminals needed*
+    11. add a controller(cd into server/controllers(type nul > person.controller.js))
+        withing controllers/person.controller.js:
+            module.exports.index = (request, response) => {
+                response.json({
+                    message: "Hello World"
+                });
+            }
+    12.add a route (cd into server/routes(type nul > person.routes.js))
+        within routes/person.routes.js:
+        
+        const PersonController = require('../controllers/person.controller');
+
+        module.exports = function(app){
+            app.get('/api', PersonController.index);
+        }
+    13.import new route into server.js
+    14.Change directories into your React project, called client, 
+        run the following: (npm install axios)
+    15.Within the src folder, create a new file called Main.js.
+        connect to axios.
+        client/src/Main.js:
+            import React, { useEffect, useState } from 'react'
+            import axios from 'axios';
+            export default () => {
+                const [ message, setMessage ] = useState("Loading...")
+                useEffect(()=>{
+                    axios.get("http://localhost:8000/api")
+                        .then(res=>setMessage(res.data.message))       
+                }, []);
+                return (
+                    <div>
+                        <h2>Message from the backend: {message}</h2>
+                    </div>
+                )
+            }
+    16.in your client/src/App.js file, you will need to insert the Main component
+
